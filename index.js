@@ -233,6 +233,7 @@ document.getElementById('closeLessonModalBtn')?.addEventListener('click', () => 
 	document.getElementById('lessonModal').style.display = 'none';
 	document.getElementById('modalBackground').style.display = 'none';
 });
+let nextLessonId = 6;
 document.getElementById('submitLessonBtn')?.addEventListener('click', () => {
 	const courseId = Number(document.getElementById('courseSelect').value);
 	const professorId = Number(document.getElementById('professorSelect').value);
@@ -240,7 +241,7 @@ document.getElementById('submitLessonBtn')?.addEventListener('click', () => {
 	const dayOfWeek = document.getElementById('daySelect').value;
 	const timeSlot = document.getElementById('timeSelect').value;
 	const newLesson = {
-		id: schedule.length + 1,
+		id: nextLessonId,
 		courseId: courseId,
 		professorId: professorId,
 		classroomNumber: classroomNumber,
@@ -249,6 +250,7 @@ document.getElementById('submitLessonBtn')?.addEventListener('click', () => {
 	};
 	addLesson(newLesson);
 	populateScheduleTable();
+	nextLessonId++;
 	document.getElementById('lessonModal').style.display = 'none';
 	document.getElementById('modalBackground').style.display = 'none';
 });
